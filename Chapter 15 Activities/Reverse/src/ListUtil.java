@@ -14,9 +14,21 @@ public class ListUtil
     public static void reverse(LinkedList<String> strings)
     {
         LinkedList<String> newList = new LinkedList<>();
-        ListIterator iter = strings.listIterator();
+        ListIterator<String> iter = strings.listIterator();
         while (iter.hasNext()){
             iter.next();
         }
+        while (iter.hasPrevious()){
+            String name = iter.previous();
+            newList.addLast(name);
+        }
+        ListIterator<String> iter2 = newList.listIterator();
+        iter = strings.listIterator();
+
+        while (iter2.hasNext()){
+            iter.next();
+            iter.set(iter2.next());
+        }
+            
     }
 }

@@ -16,7 +16,7 @@ public class Business
     {
         ListIterator<String> iterator = employeeNames.listIterator();
         for (int i = 1; iterator.hasNext(); i ++){
-            String name = iterator.next();
+            iterator.next();
             if (i % n == 0)
                 iterator.remove();
         }
