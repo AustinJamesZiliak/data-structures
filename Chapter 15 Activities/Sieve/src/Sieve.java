@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -13,7 +14,20 @@ public class Sieve
         int n = in.nextInt();
 
         // Your work goes here
-        . . .
+        Set<Integer> primes = new HashSet<>();
+        boolean prime = true;
+        for (int i = 1; i < n; i++){
+            prime = true;
+            for (int j = 2; j < i/2+1; j++){
+                if (i%j == 0){
+                    prime = false;
+                    break;
+                }    
+            }
+            if (prime)
+                primes.add(i);
+        }
+        System.out.println(primes);
 
 
 

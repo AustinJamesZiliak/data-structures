@@ -35,7 +35,7 @@ public class SudokuSolver {
             System.out.println("Cannot open: " + fileName);
         }
 
-        System.out.println(toString());
+        
 
         // create the list of sets for each row (this.rows)
         Set<Integer> curRow;
@@ -46,7 +46,7 @@ public class SudokuSolver {
             }
             this.rows.add(curRow);
         }
-            System.out.println(this.rows);
+            
 
 
         // create the list of sets for each col (this.cols)
@@ -58,7 +58,7 @@ public class SudokuSolver {
             }
             this.cols.add(curCol);
         }
-        System.out.println(this.cols);
+        
         // create the list of sets for each square (this.squares)
         /* the squares are added to the list row-by-row:
             0 1 2
@@ -76,7 +76,7 @@ public class SudokuSolver {
                 this.squares.add(curBox);
             }
         }
-        System.out.println(this.squares);
+        
 
         // create a hash set for [1..9] (this.nums)
         this.nums = new HashSet<>();
@@ -128,14 +128,45 @@ public class SudokuSolver {
 
         Set<Integer> possibleNums = new HashSet<Integer>();
         possibleNums.addAll(this.nums);
+        possibleNums.removeAll(this.rows.get(nextRow));
+        possibleNums.removeAll(this.cols.get(nextCol));
+        if (nextRow < 3){
+            if (nextCol < 3){
+                possibleNums.removeAll(this.squares.get(0));
+            }
+            else if (nextCol < 6){
+                possibleNums.removeAll(this.squares.get(1));
+            }
+            else {
+                possibleNums.removeAll(this.squares.get(2));
+            }
+        }
+        else if (nextRow < 6){
+            if (nextCol < 3){
+                possibleNums.removeAll(this.squares.get(3));
+            }
+            else if (nextCol < 6){
+                possibleNums.removeAll(this.squares.get(4));
+            }
+            else {
+                possibleNums.removeAll(this.squares.get(5));
+            }
+        }
+        else {
+            if (nextCol < 3){
+                possibleNums.removeAll(this.squares.get(6));
+            }
+            else if (nextCol < 6){
+                possibleNums.removeAll(this.squares.get(7));
+            }
+            else {
+                possibleNums.removeAll(this.squares.get(8));
+            }
+        }
 
 
 
-
-
-       // for (Integer k: this.rows[nextRow]){
-            
-       // }
+        
         
         // ...
 
@@ -147,7 +178,7 @@ public class SudokuSolver {
         // try each possible number
         for (Integer possibleNum : possibleNums) {
             // update the grid and all three corresponding sets with possibleNum
-            // ...
+            this.grid[nextRow][nextCol] = possibleNum;
 
             // recursively solve the board
             if (this.solve()) {
@@ -159,7 +190,8 @@ public class SudokuSolver {
                  element in the grid back to 0 and removing possibleNum from all three corresponding
                  sets.
                  */
-                // ...
+                this.grid[nextRow][nextCol] = 0;
+                possibleNums.remove(possibleNum);
             }
         }
 
@@ -186,6 +218,7 @@ public class SudokuSolver {
         SudokuSolver solver = new SudokuSolver(fileName);
          
         System.out.println(solver);
+        /* */
         if (solver.solve()) {
             System.out.println("Solved!");
             System.out.println(solver);
@@ -193,6 +226,7 @@ public class SudokuSolver {
         else {
             System.out.println("Unsolveable...");
         }
+        /* */
            
     }
 }
