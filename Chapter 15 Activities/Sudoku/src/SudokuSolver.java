@@ -11,6 +11,7 @@ public class SudokuSolver {
     private ArrayList<Set<Integer>> squares = new ArrayList<>();
     private Set<Integer> nums;
 
+
     public SudokuSolver(String fileName) {
         // read the puzzle file
         try (Scanner in = new Scanner(new File(fileName))) {
@@ -66,11 +67,11 @@ public class SudokuSolver {
             6 7 8
          */
         Set<Integer> curBox;
-        for (int y = 0; y < 9; y += 3){
-            for (int x = 0; x < 9; x += 3){
+        for (int y = 0; y < M; y += N){
+            for (int x = 0; x < M; x += N){
                 curBox = new HashSet<>();
-                for (int i = 0; i < 3; i++){
-                    for (int j = 0; j < 3; j++)
+                for (int i = 0; i < N; i++){
+                    for (int j = 0; j < N; j++)
                         curBox.add(this.grid[y+i][x+j]);
                 }
                 this.squares.add(curBox);
@@ -180,6 +181,8 @@ public class SudokuSolver {
             // update the grid and all three corresponding sets with possibleNum
             this.grid[nextRow][nextCol] = possibleNum;
 
+            // / / / / / / / change rows cols and square
+            
             // recursively solve the board
             if (this.solve()) {
                 // the board is solved!
@@ -191,7 +194,9 @@ public class SudokuSolver {
                  sets.
                  */
                 this.grid[nextRow][nextCol] = 0;
+
                 possibleNums.remove(possibleNum);
+                // / / / / / / / change rows cols and square back to original
             }
         }
 
