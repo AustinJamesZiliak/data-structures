@@ -6,19 +6,19 @@ import java.io.*;
  * are comma-separated strings of words of the same length.
  * Then print out those strings, in increasing order by
  * the length of their entries.
- * Modify Worked Example 15.1.
+ * Use the Java 8 merge() method from Java 8 Note 15.1.
  */
 public class StringLengthMap
 {
-    public static void main(String[] args) throws FileNotFoundException
+    public static void main(String[] args)
     {
-        String filename = "C:\\Users\\Ajziliak\\Documents\\GitHub\\data-structures\\Chapter 15 Activities\\StringLengthMap\\src\\test1.txt";
+        String filename = "data-structures\\Chapter 15 Activities\\StringLengthMap\\src\\test1.txt";
 
         try (Scanner in = new Scanner(new File(filename)))
         {
 
-            Map<String, Integer> words = new HashMap<>();
-            
+            // Create your map here
+            Map<Integer, String> words = new HashMap<>();
 
             while (in.hasNext())
             {
@@ -26,23 +26,20 @@ public class StringLengthMap
                 Integer len = word.length();
 
                 // Update the map here
-                // Modify Worked Example 15.1
-                words.put(word, len);
+                if (words.containsKey(len))
+                    words.put(len, words.get(len)+", "+word);
+                else
+                    words.put(len, word);
+                
 
 
             }
 
             // Print the strings, in increasing order of their length
             // Use this format: 1: i, a, i
-            ArrayList<String> words2 = new ArrayList<>();
-            for (String word: words.keySet()){
-                int n = 0;
-                while (words.get(word)>words.get(words2.get(n)))
-                    n++;
-                words2.add(word);
-            
+            for (Integer word: words.keySet()){
+                System.out.println(word + ": "+words.get(word));
             }
-            System.out.println(words2);
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
