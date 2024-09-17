@@ -28,7 +28,8 @@ public class FirstLetterMap
                 // Update the map here
                 // Modify Worked Example 15.1
                 if (words.containsKey(c))
-                    words.merge(c, word, (oldie, newie) -> oldie+", "+newie);
+                    if (!words.get(c).contains(word))
+                        words.merge(c, word, (oldie, newie) -> oldie+", "+newie);
                 else
                     words.put(c, word);
 

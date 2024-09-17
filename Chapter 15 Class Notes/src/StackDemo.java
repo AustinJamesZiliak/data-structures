@@ -9,5 +9,6 @@ public class StackDemo
 {
     public static void main(String[] args)
     {
+        Stack<String> commands = new Stack<>();
     }
 }
