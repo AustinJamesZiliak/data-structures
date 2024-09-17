@@ -27,9 +27,10 @@ public class FirstLetterMap
 
                 // Update the map here
                 // Use the Java 8 merge method
-                if (words.containsKey(c))
+                if (words.containsKey(c)){
                     if (!words.get(c).contains(word))
                         words.put(c, words.get(c)+", "+word);
+                }
                 else
                     words.put(c, word);
 
@@ -40,6 +41,7 @@ public class FirstLetterMap
             for (Character word: words.keySet()){
                 System.out.println(word + ": "+words.get(word));
             }
+            System.out.println("Done");
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
