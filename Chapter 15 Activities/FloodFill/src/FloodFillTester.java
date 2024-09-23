@@ -20,5 +20,6 @@ public class FloodFillTester
         System.out.println("Expected:     2  83 84   85  86 87   88  89 90   91");
         System.out.println(rows[2]);
         System.out.println("Expected:     3  82 81   80  79 78   77  76 75   74");
+        System.out.println(gr);
     }
 }

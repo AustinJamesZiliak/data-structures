@@ -17,12 +17,29 @@ public class HTMLChecker
 {
     public static void main(String[] args)
     {
-        String filename = "src/TagSample1.html";
+        String filename = "data-structures\\Chapter 15 Activities\\HTMLChecker\\src\\TagSample1.html";
 
+        Stack<String> openTags = new Stack<>();
         try (Scanner in = new Scanner(new File(filename)))
         {
             // Your code goes here
-            . . .
+            while (in.hasNext()){
+            String tag = in.next();
+            if (!tag.substring(1,2).equals("/")){
+                openTags.push(tag);
+                //System.out.println("Open");
+            }
+            else {
+                //System.out.println("Closed");
+                if (tag.equals("</"+openTags.pop().substring(1))){
+                    System.out.println("Looks fine to me so far");
+                }
+                else{
+                    System.out.println("STOP STOP STOP YOU BLITHERING BAFOON, THIS IS AN ERROR");
+                }
+            }
+            }
+
 
 
         } catch (FileNotFoundException e)
