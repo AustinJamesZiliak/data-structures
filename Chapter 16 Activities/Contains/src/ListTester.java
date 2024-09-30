@@ -8,6 +8,7 @@ public class ListTester
         LinkedList names = new LinkedList();
 
         System.out.print((names.contains("Zack") ? "true" : "false"));
+        System.out.print((names.containsRecursion("Zack") ? "true" : "false"));
         System.out.println();
         System.out.println("Expected: false");
 
@@ -17,14 +18,17 @@ public class ListTester
         names.addFirst("Dick");
 
         System.out.print((names.contains("Zack") ? "true" : "false"));
+        System.out.print((names.containsRecursion("Zack") ? "true" : "false"));
         System.out.println();
         System.out.println("Expected: false");
 
         System.out.print((names.contains("Harry") ? "true" : "false"));
+        System.out.print((names.containsRecursion("Harry") ? "true" : "false"));
         System.out.println();
         System.out.println("Expected: true");
         
         System.out.print((names.contains("Tom") ? "true" : "false"));
+        System.out.print((names.containsRecursion("Tom") ? "true" : "false"));
         System.out.println();
         System.out.println("Expected: true");
     }

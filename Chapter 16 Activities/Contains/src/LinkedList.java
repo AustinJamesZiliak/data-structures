@@ -41,8 +41,46 @@ public class LinkedList
     */
     public boolean contains(Object obj)
     {
-        // ...
+        
+        if (first != null){
+        Node cur = new Node();
+        cur.data = first.data;
+        cur.next = first.next;
+        while (cur.next != null){
+            if (cur.data.equals(obj))
+                return true;
+        }
+        }
+        return false;
     }
+
+    /**
+        Checks if this linked list contains the given object.
+        @param obj The object to be checked for.
+        @return If the object exists in the list.
+    */
+    public boolean containsRecursion(Object obj)
+    {
+        if (first != null){
+        Node cur = new Node();
+        cur.data = first.data;
+        cur.next = first.next;
+        return recursion(cur, obj);
+        }
+        return false;
+    }
+
+    private boolean recursion(Node first, Object obj){
+        if (first != null){
+        if (first.next != null){
+            if (first.data.equals(obj))
+                return true;
+            return recursion(first.next, obj);
+        }
+        }
+        return false;
+    }
+
 
     /**
         Returns the first element in the linked list.
@@ -144,8 +182,8 @@ public class LinkedList
 
     private class Node
     {
-        public Object data;
-        public Node next;
+        public Object data = null;
+        public Node next = null;
     }
 
     private class LinkedListIterator implements ListIterator

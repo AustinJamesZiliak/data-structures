@@ -24,7 +24,32 @@ public class LinkedList
     */
     public int size()
     {
-        . . .
+        int counter = 0;
+        Node cur = first;
+        while (cur != null){
+            counter++;
+            cur = cur.next;
+        }
+        return counter;
+    }
+
+    /**
+        Computes the size of the linked list.
+        @return the number of elements in the list
+    */
+    public int sizeRecursion()
+    {
+        Node cur = first;
+        return recursion(cur, 0);
+    }
+
+    private int recursion(Node cur, int count){
+        if (cur != null){
+            count += recursion(cur.next, count);
+            return count+1;
+        }
+        else
+            return 0;
     }
 
     /**

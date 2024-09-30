@@ -1,3 +1,4 @@
+
 /**
     A tester program for a revised version of the LinkedList class.
 */
@@ -29,6 +30,7 @@ public class SizeTester
         System.out.println();
         System.out.println("Expected: Juliet Emily");
         System.out.println(names.size());
+        System.out.println(names.sizeRecursion());
         System.out.println("Expected: 2");
     }
 }
