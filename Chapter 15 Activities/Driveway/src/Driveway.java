@@ -1,5 +1,4 @@
-import java.util.Stack;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Class for simulating a driveway and a street, using stacks
@@ -22,7 +21,8 @@ public class Driveway
     public Driveway()
     {
         // Complete the constructor
-        ...
+        driveway = new Stack<>();
+        street = new Stack<>();
 
 
     }
@@ -35,7 +35,7 @@ public class Driveway
     public void add(int licensePlate)
     {
         // Complete this method
-        ...
+        driveway.push(licensePlate);
 
 
     }
@@ -48,7 +48,18 @@ public class Driveway
     public void remove(int licensePlate)
     {
         // Complete this method
-        ...
+        if (driveway.contains(licensePlate)){
+          int car = driveway.pop();
+          while (car != licensePlate){
+            street.push(car);
+            car = driveway.pop();
+          }
+          //street.push(car);
+        }
+        else
+          System.out.println("Sorry, car isnt stored in our driveway");
+        while (street.size()>0)
+          driveway.push(street.pop());
 
 
     }
@@ -60,11 +71,18 @@ public class Driveway
     {
         System.out.println("In Driveway, starting at first in (one license plate per line):");
         // Print the cars in the driveway here
-        ...
+        Iterator iterateDrive = driveway.iterator();
+        while (iterateDrive.hasNext()){
+          System.out.println(iterateDrive.next());
+        }
+          
 
         System.out.println("In Street, starting at first in (one license plate per line):");
         // Print the cars in the street here
-        ...
+        Iterator iterateStreet = street.iterator();
+        while (iterateStreet.hasNext()){
+          System.out.println(iterateStreet.next());
+        }
 
     }
 }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-. . .
+import java.util.*;
 /**
  * A program to add, remove, modify or print
  * student names and grades.
@@ -10,7 +10,8 @@ public class Gradebook
     {
         Scanner in = new Scanner(System.in);
 
-        . . .
+        Map<String, Double> grade = new HashMap<>();
+        
 
         boolean done = false;
         while(!done)

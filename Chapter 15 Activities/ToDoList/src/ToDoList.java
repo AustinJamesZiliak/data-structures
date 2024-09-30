@@ -12,7 +12,8 @@ import java.util.Scanner;
 public class ToDoList
 {
     // Instance variable(s)
-    . . .
+    public PriorityQueue <Task> tasks;
+
 
     /**
      * Constructor
@@ -20,7 +21,7 @@ public class ToDoList
     public ToDoList()
     {
         // Complete this
-        . . .
+        tasks = new PriorityQueue<>();
     }
 
     /**
@@ -60,7 +61,21 @@ public class ToDoList
     public void addTask(String optionStr)
     {
         // Complete this method
-        . . .
+        try{
+            optionStr = optionStr.substring(4);
+            int firstSpace = optionStr.indexOf(" ");
+            String priority = optionStr.substring(0, firstSpace);
+            System.out.println(priority);
+            int prio = Integer.parseInt(priority);
+            optionStr = optionStr.substring(firstSpace);
+            
+            tasks.add(new Task(prio, optionStr));
+        }
+        catch(Exception e){
+            System.out.println("Not valid input");
+        }
+        
+
             
             
     }
@@ -74,7 +89,12 @@ public class ToDoList
         Task next = null;
         
         // Complete this method
-        . . .
+        try {
+            next = tasks.remove();
+        }catch(Exception e){
+            next = null;
+        }
+      
         
         
         if (next == null)
