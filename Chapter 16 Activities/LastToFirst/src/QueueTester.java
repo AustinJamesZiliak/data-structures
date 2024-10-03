@@ -21,6 +21,7 @@ public class QueueTester
             {
                 System.out.println("More elements than expected in the queue, " +
                     "perhaps the list became circular?");
+                    break;
             }
             i++;
         }

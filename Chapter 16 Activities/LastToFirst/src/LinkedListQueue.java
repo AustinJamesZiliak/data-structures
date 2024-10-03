@@ -22,12 +22,40 @@ public class LinkedListQueue
     */
     public void lastToFirst()
     {
-        . . .
+        Node iter = new Node();
+        iter.data = head.data;
+        iter.next = head.next;
+        while (iter.next != null){
+            System.out.println(iter.data);
+            iter = iter.next;
+        }
 
 
+        Node replace = new Node();
+        replace.data = tail.data;
+        replace.next = head;
+        head = replace;
+        Node cur = new Node();
+        cur.next = head;
+        System.out.println(cur.data.equals(replace.data));
+        while (!cur.next.data.equals(replace.data)){
+            cur = cur.next;
+            System.out.println(cur.data.equals(replace.data));
+        }
+        tail = cur;
+        tail.next = null;
 
 
+        iter.data = head.data;
+        iter.next = head.next;
+        /* 
+        while (iter.next != null){
+            System.out.println(iter.data);
+            iter = iter.next;
+        }
+            */
 
+        
     }
 
     /**
