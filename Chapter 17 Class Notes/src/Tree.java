@@ -6,10 +6,11 @@ import java.util.ArrayList;
 */
 public class Tree
 {
-    
+    Node root;
     static class Node
     {
-        
+        public Object data;
+        public List<Node> children;
 
         /**
             Computes the size of the subtree whose root is this node.
@@ -17,7 +18,11 @@ public class Tree
         */
         public int size()
         {
-            return 0;
+            int num = 1;
+            for(Node node: this.children){
+                num += node.size();
+            }
+            return num;
         }
     }
 
@@ -27,7 +32,9 @@ public class Tree
     */
     public Tree(Object rootData)
     {
-        
+        this.root = new Node();
+        this.root.data = rootData;
+        this.root.children = new ArrayList<>();
     }
 
     /**
@@ -35,7 +42,7 @@ public class Tree
     */
     public void addSubtree(Tree subtree)
     {
-        
+        this.root.children.add(subtree.root);
     }
 
     /**
@@ -44,8 +51,35 @@ public class Tree
     */
     public int size() 
     {
-        return 0;
+        return this.root.size();
+    }
+
+    public int leafCount(){
+        return leafCounter(this.root); 
+    }
+
+    private int leafCounter(Node node){
+        if (node.children.size() == 0){
+            return 1; 
+        }
+        else{
+            int data = 0; 
+
+            for (Node givenNode : node.children){
+                data += leafCounter(givenNode); 
+            }
+
+            return data; 
+        }
     }
 
     // Additional methods will be added in later sections.
 }
+
+//"e3e433f54t53r5trc32323es2se32sw2d54f4rr4frd4dr4ft4f4ft4ft4ft4f4ft4f32ww" (Jack 10/30/2024 1:59p.m.)
+/*
+ * 
+ * BOOO RECURSION
+ * MID AF
+ * 
+ */

@@ -5,23 +5,29 @@ public class TreeTester
 { 
    public static void main(String[] args)
    {  
-      BinarySearchTree t = new BinarySearchTree();
-      t.add("D");
-      t.add("B");
-      t.add("A");
-      t.add("C");
-      t.add("F");
-      t.add("E");
-      t.add("I");
-      t.add("G");
-      t.add("H");
-      t.add("J");
-      t.remove("A"); // Removing leaf
-      t.remove("B"); // Removing element with one child
-      t.remove("F"); // Removing element with two children
-      t.remove("D"); // Removing root
-      t.print();
-      System.out.println("Expected: C E G H I J");
+
+
+      Tree newTree = new Tree("helo");
+      Tree leftTree = new Tree("asd");
+      Tree rightTree = new Tree("asdasdasd");
+      newTree.addSubtree(leftTree);
+      newTree.addSubtree(rightTree);
+
+      int leafCounter = newTree.leafCount(); 
+      System.out.println("EXPECETED: 2"); 
+      System.out.println("ACTUAL: "+leafCounter); 
+
+      
+      /* 
+      Tree t1 = new Tree("Anne");
+      Tree t2 = new Tree("Peter");
+      t1.addSubtree(t2);
+      Tree t3 = new Tree("Zara");
+      t1.addSubtree(t3);
+      Tree t4 = new Tree("Savannah");
+      t2.addSubtree(t4);
+      System.out.println("Size: " + t1.size());
+       */
    }
 }
 

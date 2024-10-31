@@ -64,4 +64,22 @@ public class Tree
     }
 
     // Additional methods will be added in later sections.
+    public int leafCount(){
+        return leafCounter(this.root); 
+    }
+
+    private int leafCounter(Node node){
+        if (node.children.size() == 0){
+            return 1; 
+        }
+        else{
+            int data = 0; 
+
+            for (Node givenNode : node.children){
+                data += leafCounter(givenNode); 
+            }
+
+            return data; 
+        }
+    }
 }

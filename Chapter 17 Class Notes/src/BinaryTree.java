@@ -1,16 +1,17 @@
 /**
-    A binary tree in which each node has two children.
+    A binary tree in which each node has at most two children.
 */
 public class BinaryTree
 {
     private Node root;
+
 
     /**
         Constructs an empty tree.
     */
     public BinaryTree()
     {
-         
+         root = null;
     } 
 
     /**
@@ -19,7 +20,10 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData) 
     {
-        
+        this.root = new Node();
+        this.root.data = rootData;
+        this.root.left = null;
+        this.root.right = null;
     }
 
     /**
@@ -30,12 +34,17 @@ public class BinaryTree
     */
     public BinaryTree(Object rootData, BinaryTree left, BinaryTree right)
     {
-        
+        this.root = new Node();
+        this.root.data = rootData;
+        this.root.left = left.root;
+        this.root.right = right.root;
     }
     
     static class Node
     {
-        
+        public Object data;
+        public Node left;
+        public Node right;
     }
 
     /**
@@ -45,7 +54,13 @@ public class BinaryTree
     */
     private static int height(Node n)
     {
-        return 0;
+        if (n == null){
+            return 0;
+        }
+        else{
+            return 1 + Math.max(BinaryTree.height(n.left), BinaryTree.height(n.right));
+        }
+        
     }
 
     /**
@@ -54,7 +69,7 @@ public class BinaryTree
     */
     public int height()
     {
-        return 0;
+        return BinaryTree.height(this.root);
     }
 
     /**
@@ -63,7 +78,7 @@ public class BinaryTree
     */
     public boolean isEmpty()
     {
-         return false;
+        return this.root == null;
     }
 
     /**
@@ -72,7 +87,7 @@ public class BinaryTree
     */
     public Object data()
     {
-         return null;
+        return root.data;
     }
     
     /**
@@ -81,7 +96,9 @@ public class BinaryTree
     */
     public BinaryTree left() 
     { 
-        return null;
+        BinaryTree data = new BinaryTree();
+        data.root = this.root.left;
+        return data;
     }
 
     /**
@@ -90,6 +107,25 @@ public class BinaryTree
     */
     public BinaryTree right() 
     { 
-        return null;
+        BinaryTree data = new BinaryTree();
+        data.root = this.root.right;
+        return data;
     }
+
+    public int countNodesWithOneChild(){
+        int count = 0;
+        count += oneChild(this.root);
+        return count;
+    }
+     private int oneChild(Node node){
+        if (node.left == null && node.right != null)
+            return 1 + oneChild(node.right);
+        else if (node.left != null && node.right == null)
+            return 1 + oneChild(node.left);
+        else if (node.left != null && node.right != null)
+            return 0 + oneChild(node.left)+oneChild(node.right);
+        else
+            return 0;
+            
+     }
 }
