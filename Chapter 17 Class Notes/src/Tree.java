@@ -74,6 +74,25 @@ public class Tree
     }
 
     // Additional methods will be added in later sections.
+    public interface Visitor {
+        public void visit(Object data); 
+    }
+
+    public void preorder(Visitor v){
+        Tree.preorder(this.root, v);
+    }
+    private static void preorder(Node n, Visitor v){
+        if (n == null){
+            return;
+        }
+        
+        v.visit(n.data);
+        
+        for(Node child: n.children){
+            Tree.preorder(child, v);
+        }
+    }
+
 }
 
 //"e3e433f54t53r5trc32323es2se32sw2d54f4rr4frd4dr4ft4f4ft4ft4ft4f4ft4f32ww" (Jack 10/30/2024 1:59p.m.)

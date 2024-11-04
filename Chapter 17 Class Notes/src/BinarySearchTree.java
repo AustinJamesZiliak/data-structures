@@ -12,7 +12,7 @@ public class BinarySearchTree
     */
     public BinarySearchTree()
     {   
-        
+        this.root = null;
     }
     
     /**
@@ -21,7 +21,16 @@ public class BinarySearchTree
     */
     public void add(Comparable obj) 
     {   
-        
+        Node newNode = new Node();
+        newNode.data = obj;
+        newNode.left = null;
+        newNode.right = null;
+
+        if (this.root == null){
+            this.root = newNode;
+        }
+        else
+            this.root.addNode(newNode);
     }
 
     /**
@@ -31,7 +40,22 @@ public class BinarySearchTree
     */
     public boolean find(Comparable obj)
     {
-        return false;
+        boolean found = false;
+        Node current = this.root;
+        while (current != null){
+            int diff = current.data.compareTo(obj);
+            if (diff < 0){
+                current = current.left;
+            }
+            else if (diff > 0){
+                current = current.right;
+            }
+            else{
+                found = true;
+                break;
+            }
+        }
+        return found;
     }
     
     /**
@@ -41,7 +65,55 @@ public class BinarySearchTree
     */
     public void remove(Comparable obj)
     {
+        Node toBeRemoved = this.root;
+        Node parent = null;
+        boolean found = false;
+        while (!found && toBeRemoved != null){
+            int diff = obj.compareTo(toBeRemoved.data);
+            if (diff == 0){
+                found = true;
+            }
+            else if(diff < 0){
+                parent = toBeRemoved;
+                toBeRemoved = toBeRemoved.left;
+            }
+            else if(diff > 0){
+                parent = toBeRemoved;
+                toBeRemoved = toBeRemoved.right;
+            }
+        }
+        if (!found){
+            return;
+        }
+        // three cases, case 1: no kids, case 2: one kid, case 3: two kids
+        if (toBeRemoved.left == null || toBeRemoved.right == null){
+            Node newChild;
+            if (toBeRemoved.left == null)
+                newChild = toBeRemoved.right;
+            else
+                newChild = toBeRemoved.left;
+            
+            if (parent == null)
+                this.root = newChild;    
+            else
+                parent.right = newChild;
+            return;
+        }
+
+        Node leastParent = toBeRemoved;
+        Node least = toBeRemoved.right;
         
+        while (least.left != null){
+            leastParent = least;
+            least = least.left;
+        }
+     
+        toBeRemoved.data = least.data;
+
+        if (leastParent == toBeRemoved)
+            leastParent.right = least.right;
+        else
+            leastParent.left = least.right;
     }
     
     /**
@@ -49,7 +121,8 @@ public class BinarySearchTree
     */
     public void print()
     {   
-        
+        print(this.root);
+        System.out.println();
     }   
 
     /**
@@ -58,7 +131,12 @@ public class BinarySearchTree
     */
     private static void print(Node parent)
     {   
-        
+        if (parent == null){
+            return;
+        }
+        print(parent.left);
+        System.out.println(parent.data +" ");
+        print(parent.right);
     }
 
     /**
@@ -67,7 +145,11 @@ public class BinarySearchTree
     */
     static class Node
     {   
-        
+        //A BST must be made up of compareable objects
+
+        public Comparable data;
+        public Node left;
+        public Node right;
 
         /**
             Inserts a new node as a descendant of this node.
@@ -75,7 +157,21 @@ public class BinarySearchTree
         */
         public void addNode(Node newNode)
         {   
-            
+            int diff = newNode.data.compareTo(data);
+            if (diff < 0){
+                if (left == null)
+                    left = newNode;
+                else
+                    left.addNode(newNode);
+            }
+            else if (diff > 0){
+                if (right == null)
+                    right = newNode;
+                else
+                    right.addNode(newNode);
+            }
+            else //no dupelicates
+                System.out.println("Already in List silly");
         }
     }
 }
