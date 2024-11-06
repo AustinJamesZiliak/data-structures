@@ -65,4 +65,48 @@ public class Tree
     }
 
     // Additional methods will be added in later sections.
+
+    /**
+     * print a string of data from the tree starting at 
+     * top then going down one level at a time
+     */
+    public void depthFirst(){
+        System.out.print("output:   "+root.data +" ");
+        depthFirst(this.root, 0);
+    }
+    
+    
+    public static void depthFirst(Node node, int depth){
+        if (depth > 0){
+            for (Node n: node.children){
+                depthFirst(n, depth-1);
+            }
+        }
+        else
+            System.out.print(node.data);
+            for (Node n: node.children){
+                depthFirst(n, depth+1);
+            }
+    }
+    
+    public static void depthFirst(Node node){
+        for (Node n: node.children){
+            System.out.print(n);
+        }
+        for (Node n: node.children){
+            for (Node n: node.children){
+                System.out.print(n);
+            }
+        }
+        for (Node n: node.children){
+            System.out.print(n);
+            for (Node n: node.children){
+                System.out.print(n);
+                for (Node n: node.children){
+                    System.out.print(n);
+                }
+            }
+        }
+    }
+
 }
