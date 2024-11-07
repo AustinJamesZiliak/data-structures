@@ -1,6 +1,7 @@
 import java.util.TreeMap;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class MorseCode
@@ -71,9 +72,8 @@ public class MorseCode
      */
     private static void addSymbol(char letter, String code)
     {
-        /*
-            !!! INSERT CODE HERE
-        */
+        codeMap.put(letter, code);
+        treeInsert(letter, code);
     }
 
     /**
@@ -85,9 +85,44 @@ public class MorseCode
      */
     private static void treeInsert(char letter, String code)
     {
-        /*
-            !!! INSERT CODE HERE
-        */
+        if (decodeTree == null){
+            decodeTree.setValue(code);
+        }
+        else{
+            TreeNode cur = decodeTree;
+            while(code.length() > 1){
+                String data = code.substring(0, 1);
+                code = code.substring(1);
+                if (data.equals(".")){
+                    if (decodeTree.getLeft() != null)
+                        decodeTree = decodeTree.getLeft();
+                    else
+                        decodeTree.setLeft(cur);
+                }
+                else if (data.equals("-")){
+                    if (decodeTree.getRight() != null)
+                        decodeTree = decodeTree.getRight();
+                    else
+                        decodeTree.setRight(cur);
+                }
+            }
+            String data = code.substring(0, 1);
+            code = code.substring(1);
+            if (data.equals(".")){
+                if (decodeTree.getLeft() != null)
+                    decodeTree = decodeTree.getLeft();
+                else
+                    decodeTree.setLeft(cur);
+            }
+            else if (data.equals("-")){
+                if (decodeTree.getRight() != null)
+                    decodeTree = decodeTree.getRight();
+                else
+                    decodeTree.setRight(cur);
+            }
+            
+
+        }
     }
 
     /**
@@ -100,9 +135,12 @@ public class MorseCode
     {
         StringBuffer morse = new StringBuffer(400);
 
-        /*
-            !!! INSERT CODE HERE
-        */
+        Scanner message = new Scanner(text);
+        while (message.hasNext()){
+            
+            codeMap.get(message);
+        }
+        
 
         return morse.toString();
     }
