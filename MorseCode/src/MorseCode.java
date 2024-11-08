@@ -1,6 +1,6 @@
 import java.util.TreeMap;
 import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -64,6 +64,7 @@ public class MorseCode
         addSymbol('.', ".-.-.-");
         addSymbol(',', "--..--");
         addSymbol('?', "..--..");
+        System.out.println("SET UP");
     }
 
     /**
@@ -72,6 +73,7 @@ public class MorseCode
      */
     private static void addSymbol(char letter, String code)
     {
+        letter = Character.toUpperCase(letter);
         codeMap.put(letter, code);
         treeInsert(letter, code);
     }
@@ -85,44 +87,36 @@ public class MorseCode
      */
     private static void treeInsert(char letter, String code)
     {
-        if (decodeTree == null){
-            decodeTree.setValue(code);
-        }
-        else{
+            System.out.println(letter+": "+code);
             TreeNode cur = decodeTree;
-            while(code.length() > 1){
+            decodeTree = cur;
+            while(code.length() > 0){
+                //System.out.println(code);
                 String data = code.substring(0, 1);
                 code = code.substring(1);
                 if (data.equals(".")){
-                    if (decodeTree.getLeft() != null)
-                        decodeTree = decodeTree.getLeft();
-                    else
-                        decodeTree.setLeft(cur);
+                    //System.out.println("Left");
+                    if (cur.getLeft() != null)
+                        cur = cur.getLeft();
+                    else{
+                        cur.setLeft(new TreeNode(code));
+                        cur = cur.getLeft();
+                    }
                 }
                 else if (data.equals("-")){
-                    if (decodeTree.getRight() != null)
-                        decodeTree = decodeTree.getRight();
-                    else
-                        decodeTree.setRight(cur);
+                    //System.out.println("Right");
+                    if (cur.getRight() != null)
+                        cur = cur.getRight();
+                    else{
+                        cur.setRight(new TreeNode(code));
+                        cur = cur.getRight();
+                    }
+                        
                 }
             }
-            String data = code.substring(0, 1);
-            code = code.substring(1);
-            if (data.equals(".")){
-                if (decodeTree.getLeft() != null)
-                    decodeTree = decodeTree.getLeft();
-                else
-                    decodeTree.setLeft(cur);
+            if (!cur.getValue().equals(code)){
+                cur.setValue(code);
             }
-            else if (data.equals("-")){
-                if (decodeTree.getRight() != null)
-                    decodeTree = decodeTree.getRight();
-                else
-                    decodeTree.setRight(cur);
-            }
-            
-
-        }
     }
 
     /**
@@ -134,14 +128,17 @@ public class MorseCode
     public static String encode(String text)
     {
         StringBuffer morse = new StringBuffer(400);
-
-        Scanner message = new Scanner(text);
-        while (message.hasNext()){
+        String character;
+        while (text.length() > 0){
+            character = text.substring(0, 1);
+            text = text.substring(1);
+            if (!character.equals(" "))
+                morse.append(codeMap.get(Character.toUpperCase(character.toCharArray()[0])));
+            else
+                morse.append(" ");
+            morse.append(" ");
             
-            codeMap.get(message);
         }
-        
-
         return morse.toString();
     }
 
@@ -155,9 +152,16 @@ public class MorseCode
     {
         StringBuffer text = new StringBuffer(100);
 
-        /*
-            !!! INSERT CODE HERE
-        */
+        while(morse.contains(" ")){
+            String letter = morse.substring(0, morse.indexOf(" ")+1);
+            morse = morse.substring(morse.indexOf(" ")+1);
+            System.out.print(letter);
+            letter = letter.substring(0, letter.length()-1); //remove space at end
+            while (letter.length() > 0){
+
+            }
+        }
+        
 
         return text.toString();
     }
