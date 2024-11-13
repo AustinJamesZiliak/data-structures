@@ -1,0 +1,349 @@
+<!-- required, allows browser to know what kind of file is being accesed --> 
+<!DOCTYPE html>
+
+<!-- start of file, lang is the language the page is in -->
+<html lang = "en-US">
+
+<!-- extra non displayed info is set up here -->
+<head>
+
+<!-- style tag can be placed in head to define defults  -->
+
+<style>
+body {background-color: rgb(52, 165, 180);}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+
+<!-- alternate way to do whats above using a css file -->
+<link rel="stylesheet" href="style.css">
+
+<!-- web page tab name -->
+<title>My first website</title>
+
+<!-- web page tab immage -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<!--this function will relode the page every 5 seconds -->
+<meta http-equiv="refresh" content="5">
+
+<!-- rescales immage baised on current size of device -->  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+
+<!-- all visual stuff takes place inside of this block, background-color style when used here actually sets the whole page to specified color --> 
+<body style="background-color:rgb(77, 184, 77);"> 
+
+<!-- below are all the different heading options, h1 should be used for the most important info all the way down to h6 for least important info -->
+<h1>h1</h1>
+<h2>h2</h2>
+<h3>h3</h3>
+<h4>h4</h4>
+<h5>h5</h5>
+<h6>h6</h6>
+
+<!-- this is a paragraph which is used for text blocks usually pertaining to a heading -->
+<p>hello!</p>
+
+<!-- this is a link, href is an example of an atribute which gives extra coustomazation to your HTML elements -->
+<a href = "https://www.w3schools.com"> this my friend is a link </a>
+
+<!-- all immages are defined with the img tag. src defines the source of the immage alt is what shows up when the immage cant load and width and hight set the immage scaling -->
+<img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
+
+<!-- the title style tag allows for extra non displayed info -->
+<p title = "jk">your dead</p>
+
+<!-- alternate quote types for displaying -->
+<p title='John "ShotGun" Nelson'>1</p>
+<p title="John 'ShotGun' Nelson">2</p>
+
+<!-- style for font size -->
+<h1 style="font-size:60px;">Heading 1</h1>
+
+<!-- hr is a thematic break which is a line and br is a line break -->
+<h1>This is heading 1</h1>
+<p>This is some text.</p>
+<hr>
+<h2>This is heading 2</h2>
+<p>This is some other text.</p>
+<hr>
+<p>1</p>
+<br>
+<p>3</p>
+<!-- pre is preformated text so it keeps spaces and line breaks -->
+<pre>
+  hola
+  yo
+  soy de 
+     naperville
+</pre>
+
+<!-- style is a css property so below is color change borrowing from css -->
+<h1 style="background-color:powderblue;">This is a heading</h1>
+<p style="background-color:tomato;">This is a paragraph.</p>
+
+<!-- simular to the style above color is also borrowed from css but it only cchanges font color -->
+<p style="color:indigo;">Purple? Nope! ITS INDIGO! </p>
+
+<!-- here are the 140 suported colors in all browsers -->
+<a href="https://www.w3schools.com/colors/colors_names.asp">Color Options </a>
+<!-- font-family defines a font for text to displayed as, its also borrowed from css, pretty much everything in the style tag is borrowed -->
+<h1 style="font-family:verdana;">This is a heading</h1>
+<p style="font-family:courier;">This is a paragraph.</p>
+
+<!-- the font-size tag  allows to change the size of text but still keep the signifigance so for instance you could make a <h2> tag bigger then <h1> yet keep <h1>'s importance -->
+<p style="font-size:50%;">hello</p>
+<p style="font-size:12px;">hello</p>
+
+<!-- this is how you change the alignment of text -->
+<!-- id alows you to jump to this part of the page using a link -->
+<h1 style="text-align:center;" id = "A">Centered Heading</h1>
+<p style="text-align:right;">Right paragraph.</p>
+
+<!-- these are all formating styles -->
+<b>This text is bold</b>
+<strong>This text is important!</strong>
+<i>This text is italic</i>
+<em>This text is emphasized</em>
+<small>This is some smaller text.</small>
+<p>Do not forget to buy <mark>milk</mark> today.</p>
+<p>My favorite color is <del>blue</del> red.</p>
+<p>My favorite color is <del>blue</del> <ins>red</ins>.</p>
+<p>This is <sub>subscripted</sub> text.</p>
+<p>This is <sup>superscripted</sup> text.</p>
+
+<!-- a block quote is a section of text which is quoted from another website -->
+<p>Here is a quote from WWF's website:</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+  For 60 years, WWF has worked to help people and nature thrive. As the world's leading conservation organization, WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and deliver innovative solutions that protect communities, wildlife, and the places in which they live.
+</blockquote>
+
+<!-- <q> is a short quote -->
+<p>WWF's goal is to: <q>Build a future where people live in harmony with nature.</q></p>
+
+<!-- you can use the abbr tag when using less common abreiviations so people using your code can understand a little better -->
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+<!-- adress tags are usually rendered in as italic and always have a space above and below -->
+<address>
+Written by John Doe.<br>
+Visit us at:<br>
+Example.com<br>
+Box 564, Disneyland<br>
+USA
+</address>
+
+<!-- cite alows you to referance a peice of creative work in your cite, usually renders italic -->
+<p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
+
+<!-- BDO stands for Bi-Directional Override which means that text is reversed -->
+<bdo dir="rtl">This text will be written from right to left</bdo>
+
+<!-- when desplaying text you can add a border by borring from css with the style tag -->
+<p style = "border: 2px solid orangered;">BORDERED TEXT</p>
+
+<!-- here are some of the ways you can set color in HTML -->
+<h1 style="background-color:tomato;">...</h1> <!-- HTML color names -->
+<h1 style="background-color:rgb(255, 99, 71);">...</h1> <!-- rgb values -->
+<h1 style="background-color:#ff6347;">...</h1> <!-- hex colors -->
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1> <!-- hsl colors -->
+
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1> <!-- rgb colors with transparency -->
+
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1> <!-- hsl colors with transparency -->
+
+<!-- The target attribute can have one of the following values:
+_self - Default. Opens the document in the same window/tab as it was clicked
+_blank - Opens the document in a new window or tab
+_parent - Opens the document in the parent frame
+_top - Opens the document in the full body of the window -->
+<a href = "oth.html" target = "_blank">Click Me</a>
+
+<!-- you can use an immage as a link too -->
+<a href = "https://ampleadeptfirewall.austinziliak.repl.co/" target ="_parent">
+<img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
+</a>
+
+<!-- you can also make an emal link by using mailto: like shown below -->
+<a href="mailto:someone@example.com">Send email</a>
+<br>
+  
+<!-- jumps to the specified id -->
+<a href="#A">lets take a step back </a>
+  
+<!-- this button uses javascript to check for a button press -->
+<!-- title gives extra info about the button, ccan be used in links too -->
+<!-- onclick links it to a java script function -->
+<button onclick="myFunction()" title = "yells at you">kind button</button>
+
+
+<!-- java script insert below -->
+<script>
+  
+  //below is how you define a function
+  function myFunction() {
+    //alert makes a pop up of the text inside, like System.out.print(); in java or print() in python
+    alert("Hello there");
+  }
+  
+  //below hides any element with class name HOT
+  function myFunction2() {
+    var x = document.getElementsByClassName("HOT");
+    for (var i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+  }
+  
+  //simular to the function above but just changes text and references by id
+  function displayResult() {
+    document.getElementById("C3").innerHTML = "Have a nice day!";
+  }
+
+</script>
+
+<noscript>Sorry your browser doesnt support JavaScript</noscript>
+
+<!-- tables are important to display data about a page, tr is coloumn and td is each cell, th is table headers so they are boldened and centered over text -->
+<table style="border-spacing:20px">
+  
+  <!-- can be used to descrive certain formating info about a later defined portion of a table -->
+  <colgroup>
+    <col span="2" style="background-color: #D6EEEE">
+  </colgroup>
+  <tr>
+    <!-- class is used to select a specific peice of text in css -->
+    <!-- the style tag below is resposible for width -->
+    <th class="T1" style="width:10%;">Company</th>
+    <th class="T2" style="width:30%;">Contact</th>
+    <th class="T3" style="width:60%;">Country</th>
+  </tr>
+  
+  <!-- below the style tag helps us set the hight-->
+  <tr style="height:100px">
+    <td>Alfreds Futterkiste</td>
+    
+    <!--colspan helps us when a column needs to be multiple cells wide, rowspan is simular but for multiple cells tall-->
+    <td colspan ="2" rowspan ="2">Maria Anders</td>
+  </tr>
+  <tr>
+   
+    <!-- th can be on sides too -->
+    <th>Centro comercial Moctezuma</th>
+  </tr>
+</table>
+
+  <!-- unordered list -->
+<!-- list-style defines the point 
+  choices are:
+  disc - defult
+  circle
+  square
+  none
+  -->
+<ul  style="list-style-type:disc;">
+  <!-- li is a lsit item -->
+  <li>Coffee</li>
+  <!-- dd is description -->
+  <dd>- black hot drink</dd>
+  <li>Tea</li>
+  <li>Milk</li>
+  <dd>- white cold drink</dd>
+</ul>
+
+  <!-- ordered list -->
+<!--
+  type="1"	The list items will be numbered with numbers (default)
+  type="A"	The list items will be numbered with uppercase letters
+  type="a"	The list items will be numbered with lowercase letters
+  type="I"	The list items will be numbered with uppercase roman numbers
+  type="i"	The list items will be numbered with lowercase roman numbers
+  -->
+<ol type = "I">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+
+<!-- you can nest eather type of list, ordered or un ordered -->
+  <ol>
+    <li>Coffee</li>
+    <li>Tea
+      <ol>
+        <li>Black tea</li>
+        <li>Green tea</li>
+      </ol>
+    </li>
+    <li>Milk</li>
+  </ol>
+
+<!-- dl is a description list -->
+  <!--div is how you partition your code to allow for separate styling -->
+  <div style = "color:blue;">
+  <dl>
+    <dt>Coffee</dt>
+    
+    <!-- span is a short term div for inside of strings-->
+    <!-- class can be referenced in css for style reasons using . then class name-->
+    <dd>- black <span class="HOT">hot</span> drink</dd>
+    <dt>Milk</dt>
+   
+    <!-- div can be used as a line spacer too, a div element will take up a full line -->
+    <dd>- white<div>cold</div>drink</dd>
+  </dl>
+  </div>
+  <button onclick = myFunction2()>Hide hot</button>
+  
+  <!-- id is like class but can only be referenced once due to its linkability -->
+  <p id="C3">HELLO</p>
+  <button onclick = displayResult()>change text</button>
+  <br>
+  
+  <!--opens a web page in the main page-->
+  <iframe src="oth.html" height="200" width="300" title="Iframe Example" style="border:none;" name = "iframe_a"></iframe>
+  
+  <!--you can use a name tag like above to referance a iframe as the target to open-->
+  <p><a href="index.html" target="iframe_a">W3Schools.com</a></p>
+
+  <!-- scales with document -->
+<p style="font-size:10vw;">hello</p>
+<p>to select everything press <kbd>ctrl+a</kbd></p>
+
+<!-- code is defined as somthing that is computer code and its desplayed ignoring white space in the defult computer font -->
+<code>
+  <!--var tells the user that the data is a varuable-->
+  <var>x</var> = 1;
+  <var>y</var> = 2;
+  <var>x</var> = <var>x</var> + <var>y</var>;
+</code>
+
+<!---->
+<input type="text">	<!--Displays a single-line text input field-->
+<input type="radio">	<!--Displays a radio button (for selecting one of many choices)-->
+<input type="checkbox">	<!--Displays a checkbox (for selecting zero or more of many choices)-->
+<input type="submit">	<!--Displays a submit button (for submitting the form)-->
+<input type="button">	<!--Displays a clickable button-->
+
+<!-- below is a simple form, when an action takes place it opens the php page -->
+  <form action="action_page.php" novalidate>
+    <!--labels the imput-->
+    <label for="fname">First name:</label><br>
+    <!-- actual physical imput -->
+    <input type="text" id="fname" name="fname" value="John" autocomplete="on"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+<!-- this is a drop down list -->
+  <label for="cars">Choose a car:</label>
+  <select id="cars" name="cars" multipl>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+<script type='text/javascript' nonce="Mn0l5g-yZaTIipExS0fKoQ"; src="https://mail-attachment.googleusercontent.com/ddca574bdc0477a65354e973a21cc25ec7098677422461079e3f2ca4737b79cf/loader.js?fn=inject.js"></script></body>
+  
+</html>

@@ -1,0 +1,134 @@
+/* we have been using inline CSS in our style tags but anything you can do there you can do more here */
+/*
+body {
+  background-color: powderblue;
+}
+h1   {
+  color: blue;
+}
+p    {
+  color: red;
+}
+*/
+body {
+  background-color: #fffbcc;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: #9d00a8;
+  font-family: Comic Sans MS;
+  font-size: 150%;
+  margin:50px;
+}
+/*h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover {
+  color: #9d00a8;
+  font-family: Comic Sans MS;
+  font-size: 150%;
+  margin:500px;
+}*/
+p {
+  color: #383838;
+  font-family: Garamond;
+  font-size: 120%;
+  /*there are tons of border options to choose from, here they are
+  dotted     
+  dashed     
+  solid     
+  double     
+  groove     
+  ridge     
+  inset     
+  outset     
+  none     
+  hidden
+  */
+  border: 4px inset #b6b68b;
+  /*you can either set brder color sepratly like below or at the same time like above*/
+  border-color: #b6b68b;
+  padding:30px;
+  margin: 50px;
+}
+/*p:hover {
+  color: #ff0000;
+  font-family: Garamond;
+  font-size: 120%;
+  border: 4px dashed #e7e2b1;
+  padding:30px;
+  margin: 500px;
+}*/
+a:link {
+  margin: 50px;
+  color: #020075;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #610000;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ebe300;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #fb00ff;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+table {
+  border: 1px solid black;
+}
+th, td {
+  border: 1px solid black;
+  /*border-collapse: collapse;*/
+  border-radius: 10px;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+th:hover,td:hover {
+  background-color:#9ddee7;
+  padding: 200px;
+}
+/*use. class to link to a specific element in the html file, .className is how you specify specific changes*/
+.T1:hover {
+  background-color:blue;
+}
+.T2:hover {
+  background-color:green;
+}
+.T3:hover {
+  background-color:yellow;
+}
+th:hover {
+  color:red;
+}
+th:active {
+  color:green;
+  font-size:300%;
+}
+/*can help with selecting every other of somthing*/
+td:nth-child(even), th:nth-child(even) {
+  background-color: #279696;
+}
+/*can help with selecting every other of somthing but vertical*/
+tr:nth-child(even), th:nth-child(even) {
+  background-color: #6a9595;
+}
+/*class can be referenced in css*/
+.HOT {
+  color: red;
+}
+.HOT:hover {
+  font-size: 125%;
+}
+
+/*when using id you reference by # rather than .*/
+#C3 {
+  color:red;
+}
