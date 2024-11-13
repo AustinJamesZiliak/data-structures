@@ -94,29 +94,32 @@ public class MorseCode
                 //System.out.println(code);
                 String data = code.substring(0, 1);
                 code = code.substring(1);
+
+
                 if (data.equals(".")){
                     //System.out.println("Left");
                     if (cur.getLeft() != null)
                         cur = cur.getLeft();
                     else{
-                        cur.setLeft(new TreeNode(code));
+                        cur.setLeft(new TreeNode("N/A"));
                         cur = cur.getLeft();
                     }
                 }
                 else if (data.equals("-")){
                     //System.out.println("Right");
-                    if (cur.getRight() != null)
+                    if (cur.getRight() != null){
                         cur = cur.getRight();
+                    }
                     else{
-                        cur.setRight(new TreeNode(code));
+                        cur.setRight(new TreeNode("N/A"));
                         cur = cur.getRight();
                     }
                         
                 }
             }
-            if (!cur.getValue().equals(code)){
-                cur.setValue(code);
-            }
+            cur.setValue(code);
+            
+            
     }
 
     /**
@@ -151,15 +154,29 @@ public class MorseCode
     public static String decode(String morse)
     {
         StringBuffer text = new StringBuffer(100);
+        
+        while(morse.length() > 1){ // last character is a space already
+            String code = morse.substring(0, morse.indexOf(" ")+1); //include the space
+            morse = morse.substring(morse.indexOf(" ")+1);//cut out letter
+            System.out.print(code);
+            code = code.substring(0, code.length()-1); //remove space at end
 
-        while(morse.contains(" ")){
-            String letter = morse.substring(0, morse.indexOf(" ")+1);
-            morse = morse.substring(morse.indexOf(" ")+1);
-            System.out.print(letter);
-            letter = letter.substring(0, letter.length()-1); //remove space at end
-            while (letter.length() > 0){
-
+            TreeNode cur = decodeTree;//set a new start point
+            while (code.length() > 0){//while the letter still has dots or dashes
+                String data = code.substring(0, 1);//get the first part of the letter
+                code = code.substring(1); // cut the first part
+                if (data.equals(".")){ // if dot
+                    System.out.println("Left");
+                    cur = cur.getLeft(); // go left
+                }
+                else { // if dash
+                    System.out.println("Right");  
+                    cur = cur.getRight(); // go right
+                }
             }
+            text.append(cur.getValue()); // after end of code is reached add the decoded letter to the buffer
+            System.out.println(cur.getValue());
+
         }
         
 
