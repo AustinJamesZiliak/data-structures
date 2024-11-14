@@ -1,0 +1,57 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    animation-timing-function: linear;
+    animation-name: back;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@keyframes hola {
+    0% {color: hotpink;left: 50vw;top: 85vh;}
+    12.25% {color: red;left: 78.3vw;top: 73.3vh;}
+    25% {color: orange;left: 90vw;top: 45vh;}
+    37.5% {color: yellow;left: 78.3vw;top: 16.7vh;}
+    50% {color: green;left: 50vw;top: 5vh;}
+    67.5% {color: turquoise;left: 21.3vw;top: 16.3vh;}
+    75% {color: indigo;left: 10vw;top: 45vh;}
+    87.5% {color: rgb(174, 53, 230);left: 21.3vw;top: 73.3vh;}
+    100% {color: hotpink;left: 50vw;top: 85vh;}
+}
+div {
+    animation-timing-function: linear;
+    width: 100px;
+    height: 100px;
+    font-size: 500%;
+    position: relative;
+    animation-name: hola;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes back {
+    0% {background-image: conic-gradient(from 0deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    5% {background-image: conic-gradient(from 18deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    10% {background-image: conic-gradient(from 36deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    15% {background-image: conic-gradient(from 54deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    20% {background-image: conic-gradient(from 72deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    25% {background-image: conic-gradient(from 90deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    30% {background-image: conic-gradient(from 108deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    35% {background-image: conic-gradient(from 126deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    40% {background-image: conic-gradient(from 144deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    45% {background-image: conic-gradient(from 162deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    50% {background-image: conic-gradient(from 180deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    55% {background-image: conic-gradient(from 198deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    60% {background-image: conic-gradient(from 216deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    65% {background-image: conic-gradient(from 234deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    70% {background-image: conic-gradient(from 252deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    75% {background-image: conic-gradient(from 270deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    80% {background-image: conic-gradient(from 288deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    85% {background-image: conic-gradient(from 306deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    90% {background-image: conic-gradient(from 324deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    95% {background-image: conic-gradient(from 342deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+    100% {background-image: conic-gradient(from 0deg, red,red,red, red,red,red, blue,blue,blue, red,red,red,red, red, red);}
+}

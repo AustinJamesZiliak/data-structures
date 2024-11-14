@@ -1,0 +1,65 @@
+body {
+    background-image: repeating-conic-gradient(red 1%, blue 3%, green 5%, red 7%);
+    border-radius: 50%;
+    background-size: 2% 6%;
+    text-align: center;
+}
+h1,h2,h3,h4,h5,h6 {
+    color: #ffe600;
+    font-family: Comic Sans MS;
+    font-size: 150%;
+    margin:50px;
+}
+table {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(rgb(253, 255, 223), rgba(178, 182, 159, 0.493));
+}
+td, tr {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-image: linear-gradient(rgb(253, 255, 223), rgba(178, 182, 159, 0.445));
+}
+a{
+    color: black;
+    font-family: Courier New;
+    text-decoration: none;
+}
+p{
+    color: white;
+    font-family: Courier New;
+    text-decoration: none;
+}
+a:hover{
+    color: blue;
+}
+.OneOne:active {
+    background-color: green;
+    color: black;
+}
+.OneTwo:active {
+    background-color: yellow;
+    color: black;;
+}
+.OneThree:active {
+    background-color: red;
+    color: black;
+}
+.Two:active{
+    font-size: 400%;
+}
+td:hover, tr.hover{
+    background-color: rgba(0, 0, 255, 0.055);
+    font-size: 110%;
+}
+.table a
+{
+    display:block;
+    text-decoration:none;
+}
